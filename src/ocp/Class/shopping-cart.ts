@@ -1,13 +1,10 @@
-// SRP é o principio que uma classe deve ter um e apenas um motivo para mudar, ou seja, uma classe deve ter somente 1 responsabilidade.
-// Podemos entender uma responsabilidade como coisas que ja estamos acostumados a ver no programa, como enviar mensagens, voce salvar os dados, uma regra de negocio, validacao em alguns casos, isso tudo sao exemplos de responsabilidades que devem estar a parte na classe, inves de tudo em uma classe so.
-// Nao tem problema 1 classe fazer varias coisas, mas essas coisas devem ter coerencia entre elas
-
-// De acordo com o livro "O codigo limpo", uma classe pode ser considerada coesa quando ela utiliza os seus atributos dentro dos seus metodos
-
+import { Discount } from './discount';
 import { CartItem } from './interfaces/cart_item';
 
 export class ShoppingCart {
     private readonly _items: CartItem[] = [];
+
+    constructor(private readonly discount: Discount) {}
 
     addItem(item: CartItem): void {
         this._items.push(item);
@@ -25,6 +22,10 @@ export class ShoppingCart {
         return +this._items
             .reduce((total, next) => total + next.price, 0)
             .toFixed(2);
+    }
+
+    totalWidthDiscount(): number {
+        return this.discount.calculate(this.total());
     }
 
     isEmpty(): boolean {

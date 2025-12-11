@@ -7,8 +7,8 @@ export class Order {
     private _orderStatus: OrderStatus = 'open';
 
     constructor(
-        private readonly cart: ShoppingCart, // Isso se chama injecao de dependencia
-        private readonly messaging: Messaging, // Fazer isso quebra outro principio, ja que a classe fica muito dependente, seria interresantes tudo isso ser abstracao, par nao depender disso.
+        private readonly cart: ShoppingCart,
+        private readonly messaging: Messaging,
         private readonly persistency: Persistency,
     ) {}
 
@@ -23,7 +23,7 @@ export class Order {
 
         this._orderStatus = 'closed';
         this.messaging.sendMessage(
-            `Seu pedido com total de ${this.cart.total()} foi recebido!`,
+            `Seu pedido com total de ${this.cart.totalWidthDiscount()} foi recebido!`,
         );
         this.persistency.saveOrder();
         this.cart.clear();
