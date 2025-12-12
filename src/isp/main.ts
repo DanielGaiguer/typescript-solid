@@ -13,6 +13,10 @@ const tenPercentDiscount = new TenPercentDiscount();
 const shoppingCart = new ShoppingCart(tenPercentDiscount);
 const messaging = new Messaging();
 const persistency = new Persistency();
+const enterpriseCostumer = new EnterpriseCostumer(
+    'Empresa Gigante',
+    '2222222222222',
+);
 /*
 const individualCostumer = new IndividualCostumer(
     'Daniel',
@@ -20,10 +24,6 @@ const individualCostumer = new IndividualCostumer(
     '111.111.111-11',
 );
 */
-const enterpriseCostumer = new EnterpriseCostumer(
-    'Empresa Gigante',
-    '2222222222222',
-);
 
 const order = new Order(
     shoppingCart,
