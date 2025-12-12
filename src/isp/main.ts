@@ -1,8 +1,3 @@
-/*
-Interface segregation Principle (Principio da segregação de Interface) -
-os clientes não devem ser forçados a depender de interfaces que não utilizam
-*/
-
 import { Messaging } from './services/messaging';
 import { Order } from './Class/order';
 import { Persistency } from './services/persistency';
