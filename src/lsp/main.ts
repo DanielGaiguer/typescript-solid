@@ -3,7 +3,7 @@ O princípio da substituição de Liskov (LSP) afirma que as funções que usam 
 
 Resumo: Subtipos precisam ser substituíveis por seus tipos de base.
 
-Exemplo: Se meu programa espera Anima;, algo do tipo Cachorro (que herda de Animal) deve servir como qualquer outro Animal.
+Exemplo: Se meu programa espera Animal, algo do tipo Cachorro (que herda de Animal) deve servir como qualquer outro Animal.
 */
 
 import { Messaging } from './services/messaging';
